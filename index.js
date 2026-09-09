@@ -31,7 +31,7 @@ const {
   RUMEURS_ROLE_ID,
 } = process.env;
 
-const FIFTH_LINE_COLOR = 0xc9184a;
+const FIFTH_LINE_COLOR = 0x0d1b3e;
 
 const client = new Client({
   intents: [GatewayIntentBits.Guilds],
@@ -128,7 +128,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
 
         const reviewEmbed = new EmbedBuilder()
           .setColor(FIFTH_LINE_COLOR)
-          .setTitle('🕵️ Nouvelle rumeur a valider')
+          .setTitle('🕵️ Nouvelle rumeur à valider')
           .setDescription(content)
           .addFields(
             { name: 'Soumise par', value: `<@${interaction.user.id}> (${interaction.user.tag})` },
@@ -198,7 +198,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
           .setColor(approved ? 0x57f287 : 0xed4245)
           .spliceFields(1, 1, {
             name: 'Statut',
-            value: approved ? `✅ Validee par <@${interaction.user.id}>` : `❌ Refusee par <@${interaction.user.id}>`,
+            value: approved ? `✅ Validée par <@${interaction.user.id}>` : `❌ Refusée par <@${interaction.user.id}>`,
           });
 
         await interaction.update({ embeds: [updatedEmbed], components: [] });
@@ -210,7 +210,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
             .setColor(FIFTH_LINE_COLOR)
             .setAuthor({ name: 'The Fifth Line' })
             .setDescription(rumeurText)
-            .setFooter({ text: 'Rumeur anonyme • a prendre avec des pincettes 👀' })
+            .setFooter({ text: 'Rumeur anonyme • Attention ! À prendre avec des pincettes 👀' })
             .setTimestamp();
 
           await publicChannel.send({
