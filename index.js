@@ -58,7 +58,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
 
         const contentInput = new TextInputBuilder()
           .setCustomId('rumeur_content')
-          .setLabel('Ta rumeur (elle restera anonyme une fois publiee)')
+          .setLabel('Ta rumeur (restera anonyme)')
           .setStyle(TextInputStyle.Paragraph)
           .setMaxLength(1000)
           .setPlaceholder('Ex : Il parait que...')
