@@ -21,7 +21,7 @@ const { DISCORD_TOKEN, CLIENT_ID, GUILD_ID } = process.env;
 
 if (!DISCORD_TOKEN || !CLIENT_ID || !GUILD_ID) {
   console.error(
-    'Variables manquantes : verifie que DISCORD_TOKEN, CLIENT_ID et GUILD_ID sont bien dans ton .env'
+    'Variables manquantes : vérifie que DISCORD_TOKEN, CLIENT_ID et GUILD_ID sont bien dans ton .env'
   );
   process.exit(1);
 }
@@ -36,8 +36,8 @@ const rest = new REST({ version: '10' }).setToken(DISCORD_TOKEN);
       body: commands,
     });
 
-    console.log('Commandes deployees avec succes. Elles sont disponibles immediatement sur ton serveur.');
+    console.log('Commandes déployées avec succès. Elles sont disponibles immédiatement sur ton serveur.');
   } catch (error) {
-    console.error('Erreur pendant le deploiement des commandes :', error);
+    console.error('Erreur pendant le déploiement des commandes :', error);
   }
 })();
