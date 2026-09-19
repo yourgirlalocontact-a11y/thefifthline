@@ -37,7 +37,7 @@ const client = new Client({
   intents: [GatewayIntentBits.Guilds],
 });
 
-/** Un membre peut valider/refuser des rumeurs et poster des annonces s'il est admin ou a le role staff. */
+/** Un membre peut valider/refuser des rumeurs et poster des annonces s'il est admin ou a le rôle staff. */
 function isStaff(member) {
   if (!member) return false;
   if (member.permissions?.has(PermissionFlagsBits.Administrator)) return true;
@@ -118,7 +118,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
 
         if (!STAFF_CHANNEL_ID) {
           await interaction.reply({
-            content: "Le salon de validation staff n'est pas configure (STAFF_CHANNEL_ID). Previens un admin du bot.",
+            content: "Le salon de validation staff n'est pas configuré (STAFF_CHANNEL_ID). Préviens un admin du bot.",
             ephemeral: true,
           });
           return;
@@ -144,7 +144,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
         await staffChannel.send({ embeds: [reviewEmbed], components: [row] });
 
         await interaction.reply({
-          content: 'Ta rumeur a ete envoyee au staff pour validation. Merci !',
+          content: 'Ta rumeur a été envoyée aux staffs pour validation. Merci !',
           ephemeral: true,
         });
         return;
@@ -157,7 +157,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
 
         if (!PUBLIC_CHANNEL_ID) {
           await interaction.reply({
-            content: "Le salon public n'est pas configure (PUBLIC_CHANNEL_ID). Previens un admin du bot.",
+            content: "Le salon public n'est pas configuré (PUBLIC_CHANNEL_ID). Préviens un admin du bot.",
             ephemeral: true,
           });
           return;
@@ -177,7 +177,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
         const publicChannel = await client.channels.fetch(PUBLIC_CHANNEL_ID);
         await publicChannel.send({ embeds: [announceEmbed] });
 
-        await interaction.reply({ content: 'Annonce publiee.', ephemeral: true });
+        await interaction.reply({ content: 'Annonce publiée.', ephemeral: true });
         return;
       }
     }
@@ -186,7 +186,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
     if (interaction.isButton()) {
       if (interaction.customId === 'rumeur_approve' || interaction.customId === 'rumeur_reject') {
         if (!isStaff(interaction.member)) {
-          await interaction.reply({ content: "Tu n'as pas la permission de faire ca.", ephemeral: true });
+          await interaction.reply({ content: "Tu n'as pas la permission de faire ça.", ephemeral: true });
           return;
         }
 
